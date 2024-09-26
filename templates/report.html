@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Report</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="report-container">
+      <h1>Expense Report</h1>
+      <ul>
+        {% for expense in expenses %}
+        <li>
+          {{ expense.date }}: {{ expense.category }} - ${{ expense.amount }}
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="total-expense">Total Expenses: ${{ total }}</div>
+      <a href="/" class="return-link">Back to Home</a>
+    </div>
+  </body>
+</html>
